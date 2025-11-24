@@ -23,9 +23,9 @@ def train():
     model = LinearRegression()
     model.fit(X_train, y_train)
 
-    joblib.dump(model, "../models/model.pkl")
+    joblib.dump(model, "../models/linear_regression_model.pkl")
 
-    print("Modelo entrenado y guardado en models/model.pkl")
+    print("Modelo entrenado y guardado en models/linear_regression_model.pkl")
 
 if __name__ == "__main__":
     train()
