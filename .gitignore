@@ -11,6 +11,8 @@ Desktop.ini
 *.sw?
 *.swo
 *.swp
+__pycache__
+.pytest_cache
 
 # --- Logs ---
 *.log
