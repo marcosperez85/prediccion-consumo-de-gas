@@ -22,11 +22,12 @@ ml-gas-lab/
 ├── src/
 │ ├── load.py
 │ ├── eda.py
-│ ├── train.py
+│ ├── train_linear_regression.py
 │ ├── model_compare.py
 │ └── main_api.py
 │
 ├── models/
+│ ├── linear_regression_model.pkl
 │ └── randomforest_model.pkl
 │
 └── requirements.txt
@@ -47,7 +48,7 @@ ml-gas-lab/
     ```bash
     python src/model_compare.py
 
-4. Ejecutar la API para hacer predicciones:
+4. Ejecutar la API para hacer predicciones desde el root del proyecto:
     ```bash
     uvicorn src.main_api:app --reload
 
