@@ -1,12 +1,30 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
 import joblib
 import pandas as pd
 
-app = FastAPI()
-model = joblib.load("models/model.pkl")
+app = FastAPI(title="Gas Consumption Prediction API")
 
-@app.get("/predict")
-def predict(temp: float, humidity: float, wind: float, hour: int):
-    X = pd.DataFrame([[temp, humidity, wind, hour]],
-                     columns=["temp","humidity","wind","hour"])
-    return {"prediction": model.predict(X)[0]}
+# Cargamos el modelo (el que prefieras de tus comparaciones)
+model = joblib.load("models/model.pkl")
+#model = joblib.load("models/randomforest_model.pkl")
+
+class PredictRequest(BaseModel):
+    temp: float
+    humidity: float
+    wind: float
+    hour: int
+    weekday: int
+    is_weekend: int
+    lag1: float
+    lag24: float
+
+@app.post("/predict")
+def predict(req: PredictRequest):
+    data = pd.DataFrame([req.dict()])
+    pred = model.predict(data)[0]
+    return {"prediction_m3": pred}
+
+@app.get("/")
+def root():
+    return {"message": "API para predecir consumo de gas"}
