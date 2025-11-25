@@ -7,6 +7,12 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import joblib
 import os
 
+# Solo para comparar modelos sin guardarlos
+# python src/model_compare.py
+
+# Para comparar y también guardar los modelos
+# python src/model_compare.py --save
+
 def load_and_prepare(path="../data/raw/gas_consumption.csv"):
     df = pd.read_csv(path, parse_dates=["date"])
     df["hour"] = df["date"].dt.hour
