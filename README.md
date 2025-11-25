@@ -40,7 +40,7 @@ ml-gas-lab/
 │
 ├── models/                    # Modelos entrenados y serializados
 │   ├── linear_regression_model.pkl
-│   └── randomforest_model.pkl
+│   └── random_forest_model.pkl
 │
 ├── tests/                     # Pruebas unitarias y de integración
 │   ├── test_load.py
@@ -67,7 +67,7 @@ ml-gas-lab/
 
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/usuario/ml-gas-lab.git
+   git clone https://github.com/marcosperez85/prediccion-consumo-de-gas.git
    cd ml-gas-lab
    ```
 
