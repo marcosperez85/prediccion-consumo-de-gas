@@ -75,7 +75,30 @@ El dataset sintético incluye 6 features principales que representan variables c
 - Interacciones: `demand_efficiency_interaction`, `temp_demand_interaction`
 - Transformaciones: `temp_squared`
 
-## 🚀 Inicio Rápido
+## 🚀 Instalación y Uso
+
+### Prerrequisitos
+- Python 3.8+
+- pip
+
+### Instalación
+
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/marcosperez85/industrial-time-series-forecasting.git
+   cd industrial-time-series-forecasting
+   ```
+
+2. Crear y activar un entorno virtual:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # En Windows: venv\Scripts\activate
+   ```
+
+3. Instalar dependencias:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ### 1. Generar Dataset
 ```bash
