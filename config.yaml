@@ -1,0 +1,39 @@
+dataset:
+  path: "data/raw/industrial_timeseries.csv"
+  datetime_col: "timestamp"
+  target_col: "value"
+  freq: "H"
+
+  raw_feature_columns:
+    - temperature
+    - demand_factor
+    - operational_efficiency
+    - energy_price
+
+feature_engineering:
+  time_features: true
+
+  lags: [1, 24, 48, 168]
+
+  rolling:
+    windows: [24]
+    functions: ["mean", "std"]
+
+  interactions:
+    - ["demand_factor", "operational_efficiency"]
+    - ["temperature", "demand_factor"]
+
+  squared_terms:
+    - "temperature"
+
+training:
+  test_ratio: 0.2
+
+  models:
+    random_forest:
+      n_estimators: 300
+      max_depth: 10
+
+    gradient_boosting:
+      n_estimators: 300
+      learning_rate: 0.05
